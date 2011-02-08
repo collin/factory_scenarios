@@ -1,6 +1,10 @@
 class Scenario
   attr_reader :name
   
+  def storage
+    FactoryScenarios::Storage
+  end
+  
   def self.all
     FactoryGirl.factories.find_all{|fact| fact[1].class_name == :user }.map do |factory|
       new *factory
@@ -11,14 +15,36 @@ class Scenario
     all.find{|scenario| scenario.name == name }
   end
   
+  def self.clear_all
+    all.each(&:clear)
+  end
+  
   def initialize(name, factory)
     self.name = name
     @factory = factory
   end
   
-  def enact(warden)
-    user = Factory.create(@name)
+  def persisted?
+    !!storage[@name]
+  end
+  
+  def enact(warden, do_clear=false)
+    clear if do_clear
+    if storage[@name]
+      user_id = storage[@name]
+      user = User.find(user_id)
+    else
+      user = Factory.create(@name)
+      storage[@name] = user.id
+    end
+
     warden.set_user(user)
+  end
+
+  # This doesn't clear associated records, just lets you re-set the named
+  # factory.
+  def clear
+    storage[@name] = nil
   end
   
   def to_param

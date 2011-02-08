@@ -1,17 +1,6 @@
-%style
-  :plain
-    #factory-scenarios-container {
-      background: white;
-      border-top: 5px outset;
-      position: fixed;
-      width: 100%;
-      height: 50px;
-      padding: 20px
-      font-size: 16px;
-      z-index: 10000;
-    }
-
-#factory-scenarios-container
+%ul#factory-scenarios-container
   - for scenario in @scenarios
-    = link_to scenario.name, enact_factory_scenario_path(scenario)
+    %li 
+      = link_to scenario.name, enact_factory_scenario_path(scenario)
+      = link_to "reload", enact_factory_scenario_path(scenario, :clear => true) if scenario.persisted?
   

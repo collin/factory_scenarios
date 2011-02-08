@@ -5,7 +5,8 @@ class FactoryScenariosController < ActionController::Base
   
   def enact
     warden = env["warden"]
-    Scenario.find(params[:id]).enact(warden)
+    clear = !!params[:clear]
+    Scenario.find(params[:id]).enact(warden, clear)
     redirect_to root_path
   end
 end

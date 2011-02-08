@@ -19,11 +19,18 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "app/controllers/factory_scenarios_controller.rb",
+    "app/models/scenario.rb",
+    "app/views/factory_scenarios/index.html.haml",
+    "config/routes.rb",
+    "factory_scenarios.gemspec",
     "lib/factory_scenarios.rb",
+    "lib/factory_scenarios/engine.rb",
     "test/helper.rb",
     "test/test_factory_scenarios.rb"
   ]
@@ -46,6 +53,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<factory_girl>, ["~> 2.0.0.beta1"])
       s.add_runtime_dependency(%q<warden>, ["~> 1.0"])
       s.add_runtime_dependency(%q<haml>, ["~> 3.0"])
+      s.add_runtime_dependency(%q<dkastner-moneta>, ["~> 0.7"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.1"])
@@ -55,6 +63,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<factory_girl>, ["~> 2.0.0.beta1"])
       s.add_dependency(%q<warden>, ["~> 1.0"])
       s.add_dependency(%q<haml>, ["~> 3.0"])
+      s.add_dependency(%q<dkastner-moneta>, ["~> 0.7"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.1"])
@@ -65,6 +74,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<factory_girl>, ["~> 2.0.0.beta1"])
     s.add_dependency(%q<warden>, ["~> 1.0"])
     s.add_dependency(%q<haml>, ["~> 3.0"])
+    s.add_dependency(%q<dkastner-moneta>, ["~> 0.7"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.1"])

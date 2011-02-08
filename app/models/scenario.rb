@@ -25,12 +25,12 @@ class Scenario
   end
   
   def persisted?
-    storage.has_key?(@name)
+    storage.key?(@name)
   end
   
   def enact(warden, do_clear=false)
     clear if do_clear
-    if storage.has_key?(@name)
+    if storage.key?(@name)
       user_id = storage[@name].to_i
       user = User.find(user_id)
     else

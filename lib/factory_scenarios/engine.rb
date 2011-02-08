@@ -14,11 +14,11 @@ module FactoryScenarios
     
     initializer "paths" do
       paths.factories Rails.root + "spec/factories"
-      paths.datastore Rails.root + "db/factory_scenarios.#{Rails.env}.yml"
+      paths.factory_scenario_datastore Rails.root + "db/factory_scenarios.#{Rails.env}.yml"
 
-      config.moneta_backend = :YAML
-      config.moneta_config = {
-        :path => config.paths.datastore.first
+      config.factory_scenarios_moneta_backend = :YAML
+      config.factory_scenarios_moneta_config = {
+        :path => config.paths.factory_scenario_datastore.first
       }      
     end
 

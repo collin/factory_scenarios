@@ -4,10 +4,10 @@ source "http://rubygems.org"
 #   gem "activesupport", ">= 2.3.5"
 
 gem "rails", "~> 3.0"
+gem "dkastner-moneta", "~> 0.7"
 gem "factory_girl", "~> 2.0.0.beta1"
 gem "warden", "~> 1.0"
 gem "haml", "~> 3.0"
-gem "dkastner-moneta", "~> 0.7"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

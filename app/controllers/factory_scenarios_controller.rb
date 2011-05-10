@@ -1,12 +1,20 @@
 class FactoryScenariosController < ActionController::Base
+
   def index
     @scenarios = Scenario.all
+    render :layout => nil
   end
   
   def enact
-    warden = env["warden"]
-    clear = !!params[:clear]
-    Scenario.find(params[:id]).enact(warden, clear)
-    redirect_to root_path
+    reset_session
+
+    user_for_scenario = Scenario.find(params[:id]).enact(!!params[:clear])
+    env["warden"].set_user user_for_scenario
+    
+    if respond_to? :handle_factory_scenario
+      handle_factory_scenario
+    else
+      redirect_to "/"
+    end
   end
 end

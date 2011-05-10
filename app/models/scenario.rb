@@ -28,21 +28,21 @@ class Scenario
     storage.key?(@name)
   end
   
-  def enact(warden, do_clear=false)
+  def enact(do_clear=false)
     clear if do_clear
-    if storage.key?(@name)
+    if persisted?
       user_id = storage[@name].to_i
       user = User.find(user_id)
     else
       user = Factory.create(@name)
       storage[@name] = user.id
     end
-
-    warden.set_user(user)
+    
+    return user
   end
 
-  # This doesn't clear associated records, just lets you re-set the named
-  # factory.
+  # This doesn't delete associated records.
+  # It just lets you re-set the named factory.
   def clear
     storage.delete(@name)
   end

@@ -7,7 +7,7 @@ class FactoryScenariosController < ApplicationController
   
   def enact
     reset_session
-
+    
     user_for_scenario = Scenario.find(params[:id]).enact(!!params[:clear])
     env["warden"].set_user user_for_scenario
     

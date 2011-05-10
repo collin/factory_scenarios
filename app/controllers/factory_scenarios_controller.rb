@@ -1,5 +1,5 @@
-class FactoryScenariosController < ActionController::Base
-
+class FactoryScenariosController < ApplicationController
+  
   def index
     @scenarios = Scenario.all
     render :layout => nil
@@ -11,7 +11,7 @@ class FactoryScenariosController < ActionController::Base
     user_for_scenario = Scenario.find(params[:id]).enact(!!params[:clear])
     env["warden"].set_user user_for_scenario
     
-    if respond_to? :handle_factory_scenario
+    if method(:handle_factory_scenario)
       handle_factory_scenario
     else
       redirect_to "/"

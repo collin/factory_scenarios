@@ -31,11 +31,11 @@ class Scenario
   def enact(do_clear=false)
     clear if do_clear
     if persisted?
-      user_id = storage[@name].to_i
+      user_id = storage[self.name].to_i
       user = User.find(user_id)
     else
-      user = Factory.create(@name)
-      storage[@name] = user.id
+      user = Factory.create(self.name)
+      storage[self.name] = user.id
     end
     
     return user
@@ -44,7 +44,7 @@ class Scenario
   # This doesn't delete associated records.
   # It just lets you re-set the named factory.
   def clear
-    storage.delete(@name)
+    storage.delete(self.name)
   end
   
   def to_param

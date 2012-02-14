@@ -5,7 +5,7 @@ source "http://rubygems.org"
 
 gem "rails", "~> 3.0"
 gem "dkastner-moneta", "~> 0.7"
-gem "factory_girl", "~> 2.0.0.beta1"
+gem "factory_girl", "~> 2.4.0"
 gem "warden", "~> 1.0"
 gem "haml", "~> 3.0"
 

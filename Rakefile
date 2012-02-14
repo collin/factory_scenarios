@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "factory_scenarios"
   gem.homepage = "http://github.com/collin/factory_scenarios"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{one-line summary of your gem}
+  gem.description = %Q{longer description of your gem}
   gem.email = "collintmiller@gmail.com"
   gem.authors = ["Collin Miller"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

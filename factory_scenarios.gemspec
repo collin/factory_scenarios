@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "factory_scenarios"
+  s.name = %q{factory_scenarios}
   s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Collin Miller"]
-  s.date = "2012-02-14"
-  s.description = "longer description of your gem"
-  s.email = "collintmiller@gmail.com"
+  s.date = %q{2012-02-14}
+  s.description = %q{longer description of your gem}
+  s.email = %q{collintmiller@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -35,17 +35,18 @@ Gem::Specification.new do |s|
     "test/helper.rb",
     "test/test_factory_scenarios.rb"
   ]
-  s.homepage = "http://github.com/collin/factory_scenarios"
+  s.homepage = %q{http://github.com/collin/factory_scenarios}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
-  s.summary = "one-line summary of your gem"
+  s.rubygems_version = %q{1.3.7}
+  s.summary = %q{one-line summary of your gem}
   s.test_files = [
     "test/helper.rb",
     "test/test_factory_scenarios.rb"
   ]
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then

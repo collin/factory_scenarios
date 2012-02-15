@@ -1,12 +1,14 @@
+
 module FactoryScenarios
   module ::FactoryGirl
     def self.register_factory(factory, options = {})
-      name = options[:as] || factory.name
-      # write-over factories for this engine
-      # if self.factories[name]
-      #   raise DuplicateDefinitionError, "Factory already defined: #{name}"
-      # end
-      self.factories[name] = factory
+      self.factories.class.class_eval {
+        def add_forced(item)
+          @items[item.name.to_sym] = item
+        end
+      }
+
+      self.factories.add_forced(factory)
     end
   end
   
@@ -32,7 +34,7 @@ module FactoryScenarios
 
       
       Dir[globstring].each do |factory|
-        load factory
+        require factory
       end
     end
   end

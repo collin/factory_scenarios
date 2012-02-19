@@ -99,6 +99,6 @@ DEPENDENCIES
   factory_girl (~> 2.4.0)
   haml (~> 3.0)
   jeweler (~> 1.5.1)
-  rails (~> 3.0)
+  rails (~> 3.2.1)
   shoulda
   warden (~> 1.0)

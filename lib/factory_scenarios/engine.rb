@@ -10,6 +10,16 @@ module FactoryScenarios
 
       self.factories.add_forced(factory)
     end
+
+    def self.register_sequence(sequence, options = {})
+      self.sequences.class.class_eval {
+        def add_forced(item)
+          @items[item.name.to_sym] = item
+        end
+      }
+
+      self.sequences.add_forced(sequence)
+    end
   end
   
   class Engine < Rails::Engine

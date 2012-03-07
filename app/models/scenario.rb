@@ -6,8 +6,8 @@ class Scenario
   end
   
   def self.all
-    FactoryGirl.factories.find_all{|fact| fact[1].class_name == :user }.map do |factory|
-      new *factory
+    FactoryGirl.factories.find_all{|fact| fact.build_class.to_s == 'Spree::User' }.map do |factory|
+      new factory.name, factory
     end
   end
   
@@ -32,7 +32,7 @@ class Scenario
     clear if do_clear
     if persisted?
       user_id = storage[self.name].to_i
-      user = User.find(user_id)
+      user = Spree::User.find(user_id)
     else
       user = Factory.create(self.name)
       storage[self.name] = user.id
@@ -50,8 +50,8 @@ class Scenario
   def to_param
     name
   end
-  
-  def name=(name)
+
+    def name=(name)
     @name = name.to_s
   end
 end

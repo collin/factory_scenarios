@@ -23,6 +23,8 @@ module FactoryScenarios
   end
   
   class Engine < Rails::Engine
+    isolate_namespace FactoryScenarios
+    engine_name 'factory_scenarios'
     
     initializer "paths" do
       paths['factories'] = "#{Rails.root.to_s}/spec/factories"
@@ -35,14 +37,11 @@ module FactoryScenarios
     end
 
     config.to_prepare do
-      # Doesn't seem to work :(
-      # FactoryGirl.factories = {}
-      
       root = Rails.application.config.root
       factories_path = FactoryScenarios::Engine.paths['factories'].first
       globstring = (factories_path + "/**/*.rb").to_s
 
-      
+
       Dir[globstring].each do |factory|
         require factory
       end

@@ -1,38 +1,49 @@
+
 module FactoryScenarios
   module ::FactoryGirl
     def self.register_factory(factory, options = {})
-      name = options[:as] || factory.name
-      # write-over factories for this engine
-      # if self.factories[name]
-      #   raise DuplicateDefinitionError, "Factory already defined: #{name}"
-      # end
-      self.factories[name] = factory
+      self.factories.class.class_eval {
+        def add_forced(item)
+          @items[item.name.to_sym] = item
+        end
+      }
+
+      self.factories.add_forced(factory)
+    end
+
+    def self.register_sequence(sequence, options = {})
+      self.sequences.class.class_eval {
+        def add_forced(item)
+          @items[item.name.to_sym] = item
+        end
+      }
+
+      self.sequences.add_forced(sequence)
     end
   end
   
   class Engine < Rails::Engine
+    isolate_namespace FactoryScenarios
+    engine_name 'factory_scenarios'
     
     initializer "paths" do
-      paths.factories Rails.root + "spec/factories"
-      paths.factory_scenario_datastore Rails.root + "db/factory_scenarios.#{Rails.env}.yml"
+      paths['factories'] = "#{Rails.root.to_s}/spec/factories"
+      paths['factory_scenario_datastore'] = "#{Rails.root.to_s}/db/factory_scenarios.#{Rails.env}.yml"
 
       config.factory_scenarios_moneta_backend = :YAML unless config.respond_to? :factory_scenarios_moneta_backend
       config.factory_scenarios_moneta_config = {
-        :path => config.paths.factory_scenario_datastore.first
+        :path => config.paths['factory_scenario_datastore'].first
       } unless config.respond_to? :factory_scenarios_moneta_config
     end
 
     config.to_prepare do
-      # Doesn't seem to work :(
-      # FactoryGirl.factories = {}
-      
       root = Rails.application.config.root
-      factories_path = FactoryScenarios::Engine.paths.factories.first
+      factories_path = FactoryScenarios::Engine.paths['factories'].first
       globstring = (factories_path + "/**/*.rb").to_s
 
-      
+
       Dir[globstring].each do |factory|
-        load factory
+        require factory
       end
     end
   end

@@ -1,13 +1,11 @@
-class Scenario
-  attr_reader :name
-  
+class Scenario  
   def storage
     FactoryScenarios::Storage
   end
   
   def self.all
-    FactoryGirl.factories.find_all{|fact| fact[1].class_name == :user }.map do |factory|
-      new *factory
+    FactoryGirl.factories.find_all{|fact| fact.build_class.to_s == "User" }.map do |factory|
+      new factory
     end
   end
   
@@ -19,9 +17,12 @@ class Scenario
     all.each(&:clear)
   end
   
-  def initialize(name, factory)
-    self.name = name
+  def initialize(factory)
     @factory = factory
+  end
+
+  def name
+    @factory.name.to_s
   end
   
   def persisted?
@@ -31,14 +32,21 @@ class Scenario
   def enact(do_clear=false)
     clear if do_clear
     if persisted?
-      user_id = storage[self.name].to_i
-      user = User.find(user_id)
+      user = find_user
     else
       user = Factory.create(self.name)
       storage[self.name] = user.id
     end
     
     return user
+  end
+
+  def find_user
+    User.where(id: user_id).first
+  end
+
+  def user_id
+    user_id = storage[self.name].to_i
   end
 
   # This doesn't delete associated records.

@@ -1,4 +1,3 @@
-
 module FactoryScenarios
   module ::FactoryGirl
     def self.register_factory(factory, options = {})
@@ -23,8 +22,8 @@ module FactoryScenarios
   end
   
   class Engine < Rails::Engine
-    isolate_namespace FactoryScenarios
-    engine_name 'factory_scenarios'
+    # isolate_namespace FactoryScenarios
+    # engine_name 'factory_scenarios'
     
     initializer "paths" do
       paths['factories'] = "#{Rails.root.to_s}/spec/factories"

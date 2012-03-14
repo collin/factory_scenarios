@@ -1,4 +1,5 @@
 class FactoryScenariosController < ApplicationController
+  skip_before_filter :all, :only => :enact
   
   def index
     @scenarios = Scenario.all
@@ -11,7 +12,7 @@ class FactoryScenariosController < ApplicationController
                         #   user we just signed out of. may be a bug w/warden/devise
                         
     @current_user = user_for_scenario = Scenario.find(params[:id]).enact(!!params[:clear])
-    sign_in(user_for_scenario, :bypass => true)
+    sign_in(:user, user_for_scenario)
 
     if defined?(handle_factory_scenario) == "method"
       handle_factory_scenario

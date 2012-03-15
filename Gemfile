@@ -8,6 +8,7 @@ gem "dkastner-moneta", "~> 0.7"
 gem "factory_girl", "~> 2.4.0", :require => false
 gem "warden", "~> 1.0"
 gem "haml", "~> 3.0"
+gem "hashie", "~> 1.1"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

@@ -5,6 +5,7 @@ module FactoryScenarios
     include Spree::BaseHelper
 
     def index
+      set_iframe_params
       @scenarios = Scenario.all
       render :layout => nil
     end
@@ -22,6 +23,12 @@ module FactoryScenarios
       else
         redirect_to "/"
       end
+    end
+
+    private
+
+    def set_iframe_params
+      @width = FactoryScenarios.config.iframe_width
     end
   end
 end

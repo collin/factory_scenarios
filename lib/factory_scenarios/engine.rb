@@ -21,7 +21,11 @@ module FactoryScenarios
       self.sequences.add_forced(sequence)
     end
   end
-  
+
+  def self.config
+    @config ||= AppConfiguration.new(:user_class => 'User', :iframe_width => '1000px')
+  end
+
   class Engine < Rails::Engine
     isolate_namespace FactoryScenarios
     engine_name 'factory_scenarios'
@@ -34,6 +38,10 @@ module FactoryScenarios
       config.factory_scenarios_moneta_config = {
         :path => config.paths['factory_scenario_datastore'].first
       } unless config.respond_to? :factory_scenarios_moneta_config
+    end
+
+    initializer "factory_scenarios.config", :before => :load_config_initializers do |app|
+      config
     end
 
     config.to_prepare do

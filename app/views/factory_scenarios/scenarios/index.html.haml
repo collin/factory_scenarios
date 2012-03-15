@@ -4,4 +4,4 @@
       = link_to scenario.name, enact_scenario_path(scenario), :target => :dynamic, :id => "enact_#{scenario.name}"
       = link_to "reload", enact_scenario_path(scenario, :clear => true), :target => :dynamic, :id => "reload_#{scenario.name}"
       
-%iframe(name="dynamic" style=" position: fixed; top: 0; right:0; border: 0; width: 1000px; height: 100%; background: white;")
+%iframe(name="dynamic" style=" position: fixed; top: 0; right:0; border: 0; width: #{@width}; height: 100%; background: white;")

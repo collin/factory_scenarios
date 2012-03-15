@@ -13,6 +13,9 @@ Login as users defined in your FactoryGirl factories.
 * Currently there are two configuration settings
   - iframe_width: sets the width of the iframe that your site will appear in, defaults to 1000px
   - user_class: your users class, defaults to User
+* <b> Important Note </b>
+  - You need to have active_reload installed in your application to utilize this gem successfully.  The consequences of not
+    having this gem install will be errors when trying to login using your factories.
 
 == Example Configuration
 
@@ -20,6 +23,9 @@ Login as users defined in your FactoryGirl factories.
 
     FactoryScenarios.config.user_class = 'Spree::User'
     FactoryScenarios.config.iframe_width = '1400px'
+
+== Todo
+* Remove hard coded reference to BaseHelper, add as configuration option.
 
 == Contributing to factory_scenarios
  

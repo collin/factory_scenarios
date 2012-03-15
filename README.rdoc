@@ -47,8 +47,7 @@ Login as users defined in your FactoryGirl factories.
 
 == Contributors
 
-  Original gem written by Collin Miller.
-  David Guthu has updated it.
+  Original gem written by Collin Miller. Updated for Rails 3.1 by David Guthu.
 
 == Copyright
 

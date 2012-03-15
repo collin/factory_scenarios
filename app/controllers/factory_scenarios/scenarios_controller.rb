@@ -1,9 +1,6 @@
 module FactoryScenarios
   class ScenariosController < ApplicationController
 
-    # TODO: to make this into a gem we would have to provide a way to configure these dependencies
-    include Spree::BaseHelper
-
     def index
       set_iframe_params
       @scenarios = Scenario.all

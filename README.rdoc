@@ -4,12 +4,19 @@ Login as users defined in your FactoryGirl factories.
 
 == Installation
 
-* Add the gem to your gemfile, run bundle install.
+* Add the gem to your gemfile
+  group :development do
+    gem 'factory_scenarios'
+  end
+* Run bundle install
 
 == Configuration
 
 * FactoryScenarios is a mountable engine. Add a line like this to your routes.rb file:
-  - mount FactoryScenarios::Engine, :at => '/factory_scenarios'
+  if Rails.env.to_s != 'production'
+    mount FactoryScenarios::Engine, :at => '/factory_scenarios'
+  end
+
 * Currently there are two configuration settings
   - iframe_width: sets the width of the iframe that your site will appear in, defaults to 1000px
   - user_class: your users class, defaults to User
@@ -20,9 +27,10 @@ Login as users defined in your FactoryGirl factories.
 == Example Configuration
 
   Create an initializer file called app/config/initializers/factory_scenarios.rb, add the following:
-
-    FactoryScenarios.config.user_class = 'Spree::User'
-    FactoryScenarios.config.iframe_width = '1400px'
+    if Rails.env.to_s != 'production'
+      FactoryScenarios.config.user_class = 'Spree::User'
+      FactoryScenarios.config.iframe_width = '1400px'
+    end
 
 == Todo
 * Remove hard coded reference to BaseHelper, add as configuration option.

@@ -37,7 +37,7 @@ module FactoryScenarios
         user = find_user
       else
         user = Factory.create(self.name)
-        storage[self.name] = user.id
+        self.user_id = user.id
       end
       
       return user
@@ -53,6 +53,10 @@ module FactoryScenarios
 
     def user_id
       user_id = storage[self.name].to_i
+    end
+
+    def user_id=(id)
+      storage[self.name] = id
     end
 
     # This doesn't delete associated records.

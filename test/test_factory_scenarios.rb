@@ -12,10 +12,16 @@ require "./../factory_scenarios/app/models/factory_scenarios/scenario"
 require "factory_girl"
 require "active_record"
 class ::User
-end
-FactoryGirl.define do
-  factory :user do
+  def save!; true end
+  def id
+    @id ||= rand(10000).to_i
   end
+end
+class ::NotUser; end
+FactoryGirl.define do
+  factory :user do; end
+  factory :not_user do; end
+  factory :user_child, :parent => :user do; end
 end
 
 class TestFactoryScenarios < Test::Unit::TestCase
@@ -48,6 +54,45 @@ class TestFactoryScenarios < Test::Unit::TestCase
 
     should "have a storage" do
       assert_equal Moneta::Adapters::YAML, @scenario.storage.class
+    end
+
+    context "Scenario.all" do
+      should "return scenarios only for user factories" do
+        assert_equal ["user", "user_child"], FactoryScenarios::Scenario.all.map(&:name)
+      end
+    end
+
+    context "Scenario.find" do
+      should "find a scenario by factory name" do
+        assert_equal nil, FactoryScenarios::Scenario.find("not_user")
+        assert_equal "user", FactoryScenarios::Scenario.find("user").name
+      end
+    end
+
+    context "#enact" do
+      context "when persisted? is true" do
+        setup do
+          @user = User.new
+          User.meta_mock(:where, [@user])          
+        end
+
+        should "clear if do_clear is true" do
+          @scenario.user_id = 20
+          @scenario.enact(true)
+          assert_equal 0, @scenario.user_id
+        end
+
+        should "not clear if do_clear isnt true" do
+          @scenario.user_id = 20
+          @scenario.enact
+          assert_equal 20, @scenario.user_id
+        end
+      end
+
+      should "create a new user if scenario isn't persisted and do_clear is true" do
+        User.meta_mock(:where, [])
+        assert_not_equal nil, @scenario.enact(true)
+      end
     end
 
     context "#find_user" do

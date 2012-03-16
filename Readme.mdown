@@ -104,7 +104,6 @@ Preview email while logged in as users defined in your FactoryGirl factories.
 
 
 ## Todo
-* Remove hard coded reference to BaseHelper, add as configuration option.
 
 ## Contributing to factory_scenarios
  

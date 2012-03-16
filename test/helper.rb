@@ -72,13 +72,9 @@ module TestRoutes
 
     # Bring custom route block into closure and eval in context of draw
     if custom = self.class.custom_routes
-      puts "mounting routes :D"
       routes.draw {instance_eval &custom}
     end
 
-    routes.routes.each do |route|
-      puts route.inspect
-    end
   ensure
     # Wrap up route defination
     routes.disable_clear_and_finalize = false

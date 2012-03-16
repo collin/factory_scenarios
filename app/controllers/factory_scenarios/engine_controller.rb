@@ -5,8 +5,7 @@ module FactoryScenarios
     def login_to_scenario(user_for_scenario=nil)
       reset_session
 
-      return unless current_user
-      sign_out(current_user)
+      sign_out(current_user) if current_user
 
       return unless user_for_scenario
       @current_user = user_for_scenario

@@ -113,7 +113,6 @@ RAILS_VERSION=3.1.4 bundel exec rake test
 
 
 ## Todo
-* Remove hard coded reference to BaseHelper, add as configuration option.
 
 ## Contributing to factory_scenarios
  

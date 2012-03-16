@@ -1,5 +1,12 @@
 require "hashie/dash"
 module FactoryScenarios
+  class AppConfiguration < Hashie::Dash
+    property :iframe_width
+    property :user_class
+    property :factory_scenarios_moneta_backend
+    property :factory_scenarios_moneta_config
+  end
+
   module ::FactoryGirl
     def self.register_factory(factory, options = {})
       self.factories.class.class_eval {
@@ -23,7 +30,14 @@ module FactoryScenarios
   end
 
   def self.config
-    @config ||= AppConfiguration.new(:user_class => 'User', :iframe_width => '80%')
+    @config ||= AppConfiguration.new(
+      :user_class => 'User', 
+      :iframe_width => '80%',
+      :factory_scenarios_moneta_backend => :YAML,
+      :factory_scenarios_moneta_config => {
+        :path => "#{Rails.root.to_s}/db/factory_scenarios.#{Rails.env}.yml"
+      }
+    )
   end
 
   class Engine < Rails::Engine
@@ -34,12 +48,6 @@ module FactoryScenarios
       paths['factories'] = "#{Rails.root.to_s}/spec/factories"
       paths['factories'] << "#{Rails.root.to_s}/factories"
       paths['mail_previews'] = "#{Rails.root.to_s}/config/mail_preview.rb"
-      paths['factory_scenario_datastore'] = "#{Rails.root.to_s}/db/factory_scenarios.#{Rails.env}.yml"
-
-      config.factory_scenarios_moneta_backend = :YAML unless config.respond_to? :factory_scenarios_moneta_backend
-      config.factory_scenarios_moneta_config = {
-        :path => config.paths['factory_scenario_datastore'].first
-      } unless config.respond_to? :factory_scenarios_moneta_config
     end
 
     initializer "factory_scenarios.config", :before => :load_config_initializers do |app|

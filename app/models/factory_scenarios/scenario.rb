@@ -1,9 +1,8 @@
 module FactoryScenarios
   class Scenario
-    attr_reader :name
 
     def storage
-      FactoryScenarios::Storage
+      FactoryScenarios.storage
     end
 
     def self.all

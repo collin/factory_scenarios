@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "factory_scenarios"
-  s.version = "0.0.5"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Collin Miller"]
   s.date = "2012-03-16"
-  s.description = "longer description of your gem"
+  s.description = "Build your factory and log-in in a single click. Also see what your emails look like and enter your workflows by clickig on the links in the email"
   s.email = "collintmiller@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt"
@@ -28,7 +28,6 @@ Gem::Specification.new do |s|
     "app/controllers/factory_scenarios/engine_controller.rb",
     "app/controllers/factory_scenarios/mail_previews_controller.rb",
     "app/controllers/factory_scenarios/scenarios_controller.rb",
-    "app/models/factory_scenarios/app_configuration.rb",
     "app/models/factory_scenarios/scenario.rb",
     "app/views/factory_scenarios/mail_previews/index.html.haml",
     "app/views/factory_scenarios/mail_previews/show.html.haml",
@@ -39,7 +38,6 @@ Gem::Specification.new do |s|
     "lib/factory_scenarios/engine.rb",
     "lib/factory_scenarios/mail.rb",
     "lib/factory_scenarios/mail/preview.rb",
-    "lib/factory_scenarios/storage.rb",
     "test/helper.rb",
     "test/test_factory_scenarios.rb"
   ]
@@ -47,7 +45,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
-  s.summary = "one-line summary of your gem"
+  s.summary = "Use your factories to help you navigate your application state."
 
   if s.respond_to? :specification_version then
     s.specification_version = 3

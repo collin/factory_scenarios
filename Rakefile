@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "factory_scenarios"
   gem.homepage = "http://github.com/collin/factory_scenarios"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{one-line summary of your gem}
+  gem.description = %Q{longer description of your gem}
   gem.email = "collintmiller@gmail.com"
   gem.authors = ["Collin Miller"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
@@ -33,21 +33,21 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-end
+#require 'rcov/rcovtask'
+#Rcov::RcovTask.new do |test|
+#  test.libs << 'test'
+#  test.pattern = 'test/**/test_*.rb'
+#  test.verbose = true
+#end
 
 task :default => :test
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
-
-  rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "factory_scenarios #{version}"
-  rdoc.rdoc_files.include('README*')
-  rdoc.rdoc_files.include('lib/**/*.rb')
-end
+#require 'rake/rdoctask'
+#Rake::RDocTask.new do |rdoc|
+#  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+#
+#  rdoc.rdoc_dir = 'rdoc'
+#  rdoc.title = "factory_scenarios #{version}"
+#  rdoc.rdoc_files.include('README*')
+#  rdoc.rdoc_files.include('lib/**/*.rb')
+#end

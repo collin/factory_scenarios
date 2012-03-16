@@ -1,6 +1,82 @@
-= factory_scenarios
+= factory_scenarios/mail_preview
 
-Description goes here.
+Login as users defined in your FactoryGirl factories.
+
+Preview email while logged in as users defined in your FactoryGirl factories.
+
+== Installation
+
+* Add the gem to your gemfile
+  group :development do
+    gem 'factory_scenarios'
+  end
+* Run bundle install
+
+== Configuration
+
+* FactoryScenarios is a mountable engine. Add a line like this to your routes.rb file:
+  if Rails.env.to_s != 'production'
+    mount FactoryScenarios::Engine, :at => '/factory_scenarios'
+  end
+
+* Currently there are two configuration settings
+  - iframe_width: sets the width of the iframe that your site will appear in, defaults to 1000px
+  - user_class: your users class, defaults to User
+* <b> Important Note </b>
+  - You need to have active_reload installed in your application to utilize this gem successfully.  The consequences of not
+    having this gem install will be errors when trying to login using your factories.
+
+== Example Configuration
+
+  Create an initializer file called app/config/initializers/factory_scenarios.rb, add the following:
+    if Rails.env.to_s != 'production'
+      FactoryScenarios.config.user_class = 'Spree::User'
+      FactoryScenarios.config.iframe_width = '1400px'
+    end
+
+  Specify your mail previews in a file "config/mail_preview.rb"
+
+  ```ruby
+  FactoryScenarios::Mail.registrations do
+    register "Org Membership Invitation (no login)" do
+      mailer MembershipMailer
+      message :approval_message
+      message_args { Factory.create(:membership) }
+    end
+
+    register "Org Membership Invitation (correct login)" do
+      mailer MembershipMailer
+      message :approval_message
+      message_args { Factory.create(:membership) }
+
+      # Arguments to login_as block are the return value of the message_args block.
+      login_as { |membership| membership.user }
+    end
+
+    register "Org Membership Invitation (wrong login)" do
+      mailer MembershipMailer
+      message :approval_message
+      message_args { Factory.create(:membership) }
+      login_as { Factory.create :user }
+    end
+
+    register "User registration" do
+      mailer Devise::Mailer
+      message :confirmation_instructions
+      message_args { Factory.create(:unconfirmed_user) }
+    end
+
+    register "Reset password instructions" do
+      mailer Devise::Mailer
+      message :reset_password_instructions
+      message_args { Factory.create(:recoverable_user) }
+    end
+  end
+
+  ```
+
+== Todo
+* Remove hard coded reference to BaseHelper, add as configuration option.
 
 == Contributing to factory_scenarios
  
@@ -11,6 +87,10 @@ Description goes here.
 * Commit and push until you are happy with your contribution
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Contributors
+
+  Original gem written by Collin Miller. Updated for Rails 3.1 by David Guthu.
 
 == Copyright
 

@@ -9,11 +9,11 @@
       %li(class="#{"current" if scenario.find_user && scenario.find_user == current_user}")
         "#{scenario.name.titlecase}"
         .actions
-          = link_to "Login", enact_factory_scenario_path(scenario), :target => :dynamic, :id => "enact_#{scenario.name}"  
-          = link_to "reset data & login", enact_factory_scenario_path(scenario, :clear => true), :class => :reload, :target => :dynamic, :id => "reload_#{scenario.name}"
+          = link_to "Login", enact_scenario_path(scenario), :target => :dynamic, :id => "enact_#{scenario.name}"  
+          = link_to "reset data & login", enact_scenario_path(scenario, :clear => true), :class => :reload, :target => :dynamic, :id => "reload_#{scenario.name}"
   - else
     %h2 There are no defined scenarios.
     %p Make sure you are loading your scenarios.
     %p Only scenarios for your User class will be loaded as scenarios.
       
-%iframe(name="dynamic" id="dynamic" style=" position: fixed; top: 0; right:0; width: 80%; height: 100%; background: white;")
+%iframe(name="dynamic" id="dynamic" style=" position: fixed; top: 0; right:0; width: #{@width}; height: 100%; background: white;")

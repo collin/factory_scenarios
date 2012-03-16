@@ -9,7 +9,6 @@ module FactoryScenarios
 
     def enact
       user_for_scenario = Scenario.find(params[:id]).enact(!!params[:clear])
-
       login_to_scenario user_for_scenario
 
       if respond_to?(:handle_factory_scenario)

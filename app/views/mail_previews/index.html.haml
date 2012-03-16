@@ -1,0 +1,30 @@
+=javascript_include_tag "jquery"
+=javascript_include_tag "factory_scenarios"
+=stylesheet_link_tag "factory_scenarios"
+
+%h1 Mail Preview
+%ul#mail-preview-container
+  - if @previews.any?
+    %ul
+      - @previews.each do |mailer, previews|
+        %li
+          %h2= mailer.titlecase
+        %ul
+          - previews.each do |name, preview|
+            %li= link_to name, show_mail_preview_path(mailer, name: name), target: "dynamic"
+
+  - else
+    %h2 There are no defined mail previews.
+    %p Make sure you are defining yoru previews.
+    %pre
+      %code
+        :plain
+          FactoryScenarios::Mail.register "Org Membership Invitation" do
+            membership = Factory.create(:membership)
+            mailer MembershipMailer
+            message :approval_message
+            message_args membership
+          end
+
+      
+%iframe(name="dynamic" id="dynamic" style="position: fixed; top: 0; right:0; width: 80%; height: 100%; background: white;")

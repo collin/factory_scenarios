@@ -1,0 +1,19 @@
+=stylesheet_link_tag "factory_scenarios"
+.headers
+  %p 
+    %span Subject: 
+    = @message.subject
+  %p 
+    %span From: 
+    = @message.from.join(", ")
+  %p 
+    %span To: 
+    = @message.to.join(", ")
+  %p 
+    %span Sender: 
+    = @message.sender
+
+%hr
+
+%irame(style="border: none; margin: 0; padding: 0; background: white;")
+  = @message.body.decoded.html_safe

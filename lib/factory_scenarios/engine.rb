@@ -26,7 +26,8 @@ module FactoryScenarios
     # engine_name 'factory_scenarios'
     
     initializer "paths" do
-      paths['factories'] = "#{Rails.root.to_s}/spec/factories"
+      paths['factories'] = "#{Rails.root.to_s}/factories"
+      paths['mail_previews'] = "#{Rails.root.to_s}/config/mail_preview.rb"
       paths['factory_scenario_datastore'] = "#{Rails.root.to_s}/db/factory_scenarios.#{Rails.env}.yml"
 
       config.factory_scenarios_moneta_backend = :YAML unless config.respond_to? :factory_scenarios_moneta_backend
@@ -40,9 +41,13 @@ module FactoryScenarios
       factories_path = FactoryScenarios::Engine.paths['factories'].first
       globstring = (factories_path + "/**/*.rb").to_s
 
-
       Dir[globstring].each do |factory|
-        require factory
+        load factory
+      end
+                    
+      preview_paths = FactoryScenarios::Engine.paths['mail_previews'].first
+      Dir[preview_paths].each do |previews|
+        load previews
       end
     end
   end

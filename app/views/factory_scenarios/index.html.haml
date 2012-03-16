@@ -1,59 +1,6 @@
 =javascript_include_tag "jquery"
-
-:javascript
-  $("li a").live("click", function(event) {
-    $(".current").removeClass("current")
-    $(this).closest("li").addClass("current")
-  })
-
-
-%style
-  :sass
-    body
-      font-family: sans-serif
-    h1
-      font-size: 16px
-    ul
-      margin: 0
-      padding: 0
-      width: 20%
-      min-width: 150px
-    li
-      list-style-type: none
-      border-bottom: 1px dotted #999
-      margin: 0
-      padding: 1em 0
-      display: block
-      min-width: 170px
-      overflow: hidden
-      padding-left: 1em
-
-      &.current
-        background-color: #ffc
-
-      &:last-child
-        border-bottom: none
-
-      form
-        display: inline-block
-        margin: 0
-
-      .actions
-        float: right
-        margin-right: 20px
-
-
-      a
-        font-size: 12px
-        &.reload
-          color: red
-          &:hover
-            background: red
-            color: white
-    iframe
-      border: none
-      border-left: 3px solid #ccf
-
+=javascript_include_tag "factory_scenarios"
+=stylesheet_link_tag "factory_scenarios"
 
 %h1 Factory Scenarios
 %ul#factory-scenarios-container

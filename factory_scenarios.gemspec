@@ -13,15 +13,13 @@ Gem::Specification.new do |s|
   s.description = "TODO: longer description of your gem"
   s.email = "collintmiller@gmail.com"
   s.extra_rdoc_files = [
-    "LICENSE.txt",
-    "README.rdoc"
+    "LICENSE.txt"
   ]
   s.files = [
     ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.rdoc",
     "Rakefile",
     "VERSION",
     "app/controllers/factory_scenarios_controller.rb",
@@ -49,7 +47,9 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<dkastner-moneta>, ["~> 0.7"])
       s.add_runtime_dependency(%q<factory_girl>, ["~> 2.1"])
       s.add_runtime_dependency(%q<warden>, ["~> 1.1"])
-      s.add_runtime_dependency(%q<haml>, ["~> 3.0"])
+      s.add_runtime_dependency(%q<haml>, ["~> 3.1"])
+      s.add_runtime_dependency(%q<sass>, ["~> 3.1"])
+      s.add_runtime_dependency(%q<compass-rails>, ["~> 1.0.0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.1.rc8"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
@@ -59,7 +59,9 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<dkastner-moneta>, ["~> 0.7"])
       s.add_dependency(%q<factory_girl>, ["~> 2.1"])
       s.add_dependency(%q<warden>, ["~> 1.1"])
-      s.add_dependency(%q<haml>, ["~> 3.0"])
+      s.add_dependency(%q<haml>, ["~> 3.1"])
+      s.add_dependency(%q<sass>, ["~> 3.1"])
+      s.add_dependency(%q<compass-rails>, ["~> 1.0.0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.1.rc8"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
@@ -70,7 +72,9 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<dkastner-moneta>, ["~> 0.7"])
     s.add_dependency(%q<factory_girl>, ["~> 2.1"])
     s.add_dependency(%q<warden>, ["~> 1.1"])
-    s.add_dependency(%q<haml>, ["~> 3.0"])
+    s.add_dependency(%q<haml>, ["~> 3.1"])
+    s.add_dependency(%q<sass>, ["~> 3.1"])
+    s.add_dependency(%q<compass-rails>, ["~> 1.0.0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.1.rc8"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.3"])

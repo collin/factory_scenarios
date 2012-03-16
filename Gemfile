@@ -7,7 +7,9 @@ gem "rails", "~> 3.1.0"
 gem "dkastner-moneta", "~> 0.7"
 gem "factory_girl", "~> 2.1"
 gem "warden", "~> 1.1"
-gem "haml", "~> 3.0"
+gem "haml", "~> 3.1"
+gem "sass", "~> 3.1"
+gem "compass-rails", "~> 1.0.0"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

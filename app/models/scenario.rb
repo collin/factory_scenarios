@@ -26,7 +26,7 @@ class Scenario
   end
   
   def persisted?
-    storage.key?(@name)
+    !!find_user
   end
   
   def enact(do_clear=false)

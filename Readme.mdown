@@ -15,9 +15,12 @@ Preview email while logged in as users defined in your FactoryGirl factories.
 ## Configuration
 
 * FactoryScenarios is a mountable engine. Add a line like this to your routes.rb file:
+
+  ```ruby
   if Rails.env.to_s != 'production'
     mount FactoryScenarios::Engine, :at => '/factory_scenarios'
   end
+  ```
 
 * Currently there are two configuration settings
   - iframe_width: sets the width of the iframe that your site will appear in, defaults to 1000px
@@ -29,10 +32,13 @@ Preview email while logged in as users defined in your FactoryGirl factories.
 ## Example Configuration
 
   Create an initializer file called app/config/initializers/factory_scenarios.rb, add the following:
+
+  ```ruby
     if Rails.env.to_s != 'production'
       FactoryScenarios.config.user_class = 'Spree::User'
       FactoryScenarios.config.iframe_width = '1400px'
     end
+  ```
 
   Specify your mail previews in a file "config/mail_preview.rb"
 

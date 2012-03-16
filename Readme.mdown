@@ -1,10 +1,10 @@
-= factory_scenarios/mail_preview
+# factory_scenarios/mail_preview
 
 Login as users defined in your FactoryGirl factories.
 
 Preview email while logged in as users defined in your FactoryGirl factories.
 
-== Installation
+## Installation
 
 * Add the gem to your gemfile
   group :development do
@@ -12,7 +12,7 @@ Preview email while logged in as users defined in your FactoryGirl factories.
   end
 * Run bundle install
 
-== Configuration
+## Configuration
 
 * FactoryScenarios is a mountable engine. Add a line like this to your routes.rb file:
   if Rails.env.to_s != 'production'
@@ -26,7 +26,7 @@ Preview email while logged in as users defined in your FactoryGirl factories.
   - You need to have active_reload installed in your application to utilize this gem successfully.  The consequences of not
     having this gem install will be errors when trying to login using your factories.
 
-== Example Configuration
+## Example Configuration
 
   Create an initializer file called app/config/initializers/factory_scenarios.rb, add the following:
     if Rails.env.to_s != 'production'
@@ -75,10 +75,10 @@ Preview email while logged in as users defined in your FactoryGirl factories.
 
   ```
 
-== Todo
+## Todo
 * Remove hard coded reference to BaseHelper, add as configuration option.
 
-== Contributing to factory_scenarios
+## Contributing to factory_scenarios
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -88,11 +88,11 @@ Preview email while logged in as users defined in your FactoryGirl factories.
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
-== Contributors
+## Contributors
 
   Original gem written by Collin Miller. Updated for Rails 3.1 by David Guthu.
 
-== Copyright
+## Copyright
 
 Copyright (c) 2011 Collin Miller. See LICENSE.txt for
 further details.

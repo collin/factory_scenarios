@@ -12,6 +12,15 @@ Preview email while logged in as users defined in your FactoryGirl factories.
   end
 * Run bundle install
 
+
+## Tests
+
+To test with your desired version of rails, do this:
+
+```sh
+RAILS_VERSION=3.1.4 bundel exec rake test
+```
+
 ## Configuration
 
 * FactoryScenarios is a mountable engine. Add a line like this to your routes.rb file:

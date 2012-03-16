@@ -27,6 +27,7 @@ end
 Jeweler::RubygemsDotOrgTasks.new
 
 require 'rake/testtask'
+require 'test_engine/test_unit'
 Rake::TestTask.new(:test) do |test|
   test.libs << 'lib' << 'test'
   test.pattern = 'test/**/test_*.rb'

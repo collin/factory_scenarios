@@ -4,6 +4,16 @@ Login as users defined in your FactoryGirl factories.
 
 Preview email while logged in as users defined in your FactoryGirl factories.
 
+## Screenshots
+
+#### Factory Scenarios
+
+![Facotory Scenarios](http://img.skitch.com/20120316-qjyjksx9cbx9796c1j8rb29565.png)
+
+#### Mail Preview
+
+![Mail Preview](https://img.skitch.com/20120316-pasihu1qp4t3mkuia9kt5km4ju.png)
+
 ## Installation
 
 * Add the gem to your gemfile

@@ -40,6 +40,19 @@ Preview email while logged in as users defined in your FactoryGirl factories.
     end
   ```
 
+  To redirect to a specific location in your application after logging in as a scenario
+  define handle_factory_scenario in your ApplicationController.
+
+  ```ruby
+  # Be sure to use main_app for url_generation as this method will be called
+  # from inside the engine controllers
+  def handle_factory_scenario
+    redirect_to main_app.root_url(subdomain: current_user.subdomain)  
+  end
+  ```
+
+  #### ( Seems like this should be a configuration option rather than a method defined on the app controller no?)
+
   Specify your mail previews in a file "config/mail_preview.rb"
 
   ```ruby

@@ -17,11 +17,4 @@ group :development do
   gem "bundler", "~> 1.1.rc8"
   gem "jeweler", "~> 1.8.3"
   gem "test_engine"
-  # platform :ruby_18 do
-  #   gem "rcov", ">= 0"    
-  # end
-
-  # platform :ruby_19 do
-  #   gem "simplecov", ">= 0"    
-  # end
 end

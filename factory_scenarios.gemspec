@@ -38,8 +38,10 @@ Gem::Specification.new do |s|
     "lib/factory_scenarios/engine.rb",
     "lib/factory_scenarios/mail.rb",
     "lib/factory_scenarios/mail/preview.rb",
+    "test/functional/factory_scenarios_controller_test.rb",
     "test/helper.rb",
-    "test/test_factory_scenarios.rb"
+    "test/test_factory_scenarios.rb",
+    "test/unit/test_scenario.rb"
   ]
   s.homepage = "http://github.com/collin/factory_scenarios"
   s.licenses = ["MIT"]
@@ -60,8 +62,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.1.rc8"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<simplecov>, [">= 0"])
+      s.add_development_dependency(%q<test_engine>, [">= 0"])
     else
       s.add_dependency(%q<rails>, ["~> 3.0"])
       s.add_dependency(%q<dkastner-moneta>, ["~> 0.7"])
@@ -72,8 +73,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.1.rc8"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
-      s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<simplecov>, [">= 0"])
+      s.add_dependency(%q<test_engine>, [">= 0"])
     end
   else
     s.add_dependency(%q<rails>, ["~> 3.0"])
@@ -85,8 +85,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.1.rc8"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
-    s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<simplecov>, [">= 0"])
+    s.add_dependency(%q<test_engine>, [">= 0"])
   end
 end
 

@@ -1,6 +1,6 @@
 # factory_scenarios/mail_preview
 
-[![Build Status](https://secure.travis-ci.org/collin/factory_scenarios.png)](http://travis-ci.org/collin/factory_scenariosg)
+[![Build Status](https://secure.travis-ci.org/collin/factory_scenarios.png)](http://travis-ci.org/collin/factory_scenarios)
 
 Login as users defined in your FactoryGirl factories.
 

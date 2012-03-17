@@ -4,7 +4,7 @@ rvm:
 before_install:
   - gem update --system
 script: "rake test"
-env:
-  - RAILS_VERSION=3.0.12
-  - RAILS_VERSION=3.1.4
-  - RAILS_VERSION=3.2.2
+gemfiles:
+  - test/gemfiles/3.0.gemfile
+  - test/gemfiles/3.1.gemfile
+  - test/gemfiles/3.2.gemfile

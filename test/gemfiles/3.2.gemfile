@@ -15,4 +15,3 @@ group :development do
   gem "jeweler", "~> 1.8.3"
   gem "test_engine"
 end
-g

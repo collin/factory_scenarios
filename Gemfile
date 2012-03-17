@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "~> 3.0"
+gem "rails", ">= 3.1"
 gem "dkastner-moneta", "~> 0.7"
 gem "factory_girl", "~> 2", :require => false
 gem "warden", "~> 1.0"

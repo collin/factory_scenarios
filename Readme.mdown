@@ -33,9 +33,11 @@ RAILS_VERSION=3.1.4 bundel exec rake test
   end
   ```
 
-* Currently there are two configuration settings
+* The current configuration options are as follows
   - iframe_width: sets the width of the iframe that your site will appear in, defaults to 1000px
   - user_class: your users class, defaults to User
+  - open_in_iframe: by default factory_scenarios will open your site in an iframe leaving the scenarios on the left,
+    if you don't desire this functionality you can set this option to false.
 * <b> Important Note </b>
   - You need to have active_reload installed in your application to utilize this gem successfully.  The consequences of not
     having this gem install will be errors when trying to login using your factories.

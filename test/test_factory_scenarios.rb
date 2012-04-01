@@ -13,6 +13,7 @@ class TestFactoryScenarios < Test::Unit::TestCase
     should "has default configuration" do
       assert_equal "User", FactoryScenarios.config.user_class
       assert_equal "80%", FactoryScenarios.config.iframe_width
+      assert_equal true, FactoryScenarios.config.open_in_iframe
       assert_equal :YAML, FactoryScenarios.config.factory_scenarios_moneta_backend
       assert_equal DEFAULT_FILE_PATH, FactoryScenarios.config.factory_scenarios_moneta_config[:path]
     end

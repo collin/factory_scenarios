@@ -45,12 +45,14 @@ module FactoryScenarios
   class Engine < Rails::Engine
     isolate_namespace FactoryScenarios
     engine_name 'factory_scenarios'
-    
-    initializer "paths" do
-      paths['factories'] = "#{Rails.root.to_s}/spec/factories"
-      paths['factories'] << "#{Rails.root.to_s}/factories"
-      paths['mail_previews'] = "#{Rails.root.to_s}/config/mail_preview.rb"
-    end
+
+    #initializer "paths" do
+    #  paths.add 'factories', :with => ["#{Rails.root.to_s}/spec/factories", "#{Rails.root.to_s}/factories"]
+    #  paths.add 'mail_previews', :with => ["#{Rails.root.to_s}/config/mail_preview.rb"]
+    #end
+
+    paths['factories'] = ["#{Rails.root.to_s}/spec/factories", "#{Rails.root.to_s}/factories"]
+    paths['mail_previews'] = ["#{Rails.root.to_s}/config/mail_preview.rb"]
 
     initializer "factory_scenarios.config", :before => :load_config_initializers do |app|
       config

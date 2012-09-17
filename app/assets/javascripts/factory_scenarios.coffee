@@ -1,5 +1,5 @@
 jQuery ($) ->
-  $("li a").on "click", (event) ->
+  $("li a").click (event) ->
     if $(this).data('open_in_iframe') == 'true'
       $(".current").removeClass("current")
       $(this).closest("li").addClass("current")

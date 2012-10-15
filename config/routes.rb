@@ -1,5 +1,8 @@
+require "rubyception"
 FactoryScenarios::Engine.routes.draw do
-  root :to => 'scenarios#index'
+  root :to => 'environment#integration'
+
+  mount Rubyception::Engine, at: '/rubyception'
 
   resources :scenarios do
     member do

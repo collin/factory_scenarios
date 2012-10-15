@@ -6,6 +6,8 @@ gem "factory_girl", "~> 2", :require => false
 gem "warden", "~> 1.0"
 gem "haml", "~> 3.0"
 gem "hashie", "~> 1.1"
+gem "rubyception", "~> 0.1.1"
+gem "jquery-rails"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

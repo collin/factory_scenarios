@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "factory_scenarios"
-  s.version = "0.1.0"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Collin Miller"]
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
     "app/views/factory_scenarios/mail_previews/index.html.haml",
     "app/views/factory_scenarios/mail_previews/show.html.haml",
     "app/views/factory_scenarios/scenarios/index.html.haml",
+    "app/helpers/factory_scenarios/scenarios_helper.rb",
     "config/routes.rb",
     "factory_scenarios.gemspec",
     "lib/factory_scenarios.rb",

@@ -5,6 +5,7 @@ module FactoryScenarios
     property :user_class
     property :factory_scenarios_moneta_backend
     property :factory_scenarios_moneta_config
+    property :open_in_iframe
   end
 
   module ::FactoryGirl
@@ -33,6 +34,7 @@ module FactoryScenarios
     @config ||= AppConfiguration.new(
       :user_class => 'User', 
       :iframe_width => '80%',
+      :open_in_iframe => true,
       :factory_scenarios_moneta_backend => :YAML,
       :factory_scenarios_moneta_config => {
         :path => "#{Rails.root.to_s}/db/factory_scenarios.#{Rails.env}.yml"

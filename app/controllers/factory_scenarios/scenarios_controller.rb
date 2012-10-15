@@ -1,5 +1,6 @@
 module FactoryScenarios
   class ScenariosController < EngineController
+    include FactoryScenarios::ScenariosHelper
 
     def index
       set_iframe_params

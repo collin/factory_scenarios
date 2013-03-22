@@ -5,15 +5,15 @@
     = @message.subject
   %p 
     %span From: 
-    = Array(@message.from).join(", ")
+    = @message.from.join(", ")
   %p 
     %span To: 
-    = Array(@message.to).join(", ")
+    = @message.to.join(", ")
   %p 
     %span Sender: 
     = @message.sender
 
 %hr
 
-%irame.mail-preview(style="border: none; margin: 0; padding: 0; background: white;")
+%irame(style="border: none; margin: 0; padding: 0; background: white;")
   = @message.body.decoded.html_safe

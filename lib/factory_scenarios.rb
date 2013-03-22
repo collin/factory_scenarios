@@ -4,6 +4,8 @@ require "haml"
 require "warden"
 require "moneta"
 
+Factory = FactoryGirl unless defined?(Factory)
+
 module FactoryScenarios
   require "factory_scenarios/engine"
   autoload :Mail, "factory_scenarios/mail"

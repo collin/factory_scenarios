@@ -32,8 +32,14 @@ GEM
     builder (3.0.0)
     dkastner-moneta (0.7.0)
     erubis (2.7.0)
+    eventmachine (1.0.0)
+    execjs (1.4.0)
+      multi_json (~> 1.0)
     factory_girl (2.4.2)
       activesupport
+    factory_girl (4.2.0)
+      activesupport (>= 3.0.0)
+    fssm (0.2.9)
     git (1.2.5)
     haml (3.1.4)
     hashie (1.2.0)
@@ -105,7 +111,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.1.rc8)
   dkastner-moneta (~> 0.7)
-  factory_girl (~> 2)
+  factory_girl (~> 4.2.0)
   haml (~> 3.0)
   hashie (~> 1.1)
   jeweler (~> 1.8.3)

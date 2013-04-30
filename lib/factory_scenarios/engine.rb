@@ -58,6 +58,12 @@ module FactoryScenarios
       config
     end
 
+
+    initializer :assets do |config|
+      Rails.application.config.assets.precompile += %w( factory_scenarios.coffee factory_scenarios.css.sass )
+    end
+
+
     config.to_prepare do
       root = Rails.application.config.root
 

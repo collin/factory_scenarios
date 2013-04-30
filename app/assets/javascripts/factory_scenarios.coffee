@@ -1,3 +1,5 @@
+#= require jquery
+
 jQuery ($) ->
   $("li a").click (event) ->
     if $(this).data('open_in_iframe') == 'true'

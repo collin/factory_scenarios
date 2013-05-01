@@ -44,6 +44,9 @@ Gem::Specification.new do |s|
     "test/test_factory_scenarios.rb",
     "test/unit/test_scenario.rb"
   ]
+
+  s.files += Dir["vendor/**/*"]
+
   s.homepage = "http://github.com/collin/factory_scenarios"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]

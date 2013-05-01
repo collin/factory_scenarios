@@ -1,0 +1,72 @@
+body
+  font-family: sans-serif
+  margin: 0
+  padding: 0
+hr
+  padding: 0
+  margin: 0
+  border-bottom: 0.5px solid #999
+h1
+  font-size: 16px
+body > ul
+  width: 20%
+  min-width: 150px
+ul
+  margin: 0
+  padding: 0
+li
+  list-style-type: none
+  border-bottom: 1px dotted #999
+  margin: 0
+  padding: 1em 0
+  display: block
+  min-width: 170px
+  overflow: hidden
+  padding-left: 1em
+
+  &.current
+    background-color: #ffc
+
+  &:last-child
+    border-bottom: none
+
+  form
+    display: inline-block
+    margin: 0
+
+  .actions
+    float: right
+    margin-right: 20px
+
+
+  a
+    font-size: 12px
+    &.reload
+      color: red
+      &:hover
+        background: red
+        color: white
+iframe
+  border: none
+  border-left: 3px solid #ccf
+
+#mail-preview-container
+  h1
+    font-size: 16px
+  h2
+    font-size: 12px
+  > ul > ul
+    padding-left: 40px
+
+.headers
+  background-color: #dadada
+  padding-top: 5px
+  p
+    height: 24px
+    margin: 0
+  span
+    display: inline-block
+    width: 100px
+    margin-right: 10px
+    font-family: monospace
+    text-align: right

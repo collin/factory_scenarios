@@ -73,13 +73,13 @@ RAILS_VERSION=3.1.4 bundel exec rake test
     register "Org Membership Invitation (no login)" do
       mailer MembershipMailer
       message :approval_message
-      message_args { Factory.create(:membership) }
+      message_args { FactoryGirl.create(:membership) }
     end
 
     register "Org Membership Invitation (correct login)" do
       mailer MembershipMailer
       message :approval_message
-      message_args { Factory.create(:membership) }
+      message_args { FactoryGirl.create(:membership) }
 
       # Arguments to login_as block are the return value of the message_args block.
       login_as { |membership| membership.user }
@@ -88,20 +88,20 @@ RAILS_VERSION=3.1.4 bundel exec rake test
     register "Org Membership Invitation (wrong login)" do
       mailer MembershipMailer
       message :approval_message
-      message_args { Factory.create(:membership) }
-      login_as { Factory.create :user }
+      message_args { FactoryGirl.create(:membership) }
+      login_as { FactoryGirl.create :user }
     end
 
     register "User registration" do
       mailer Devise::Mailer
       message :confirmation_instructions
-      message_args { Factory.create(:unconfirmed_user) }
+      message_args { FactoryGirl.create(:unconfirmed_user) }
     end
 
     register "Reset password instructions" do
       mailer Devise::Mailer
       message :reset_password_instructions
-      message_args { Factory.create(:recoverable_user) }
+      message_args { FactoryGirl.create(:recoverable_user) }
     end
   end
 

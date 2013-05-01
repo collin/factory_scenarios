@@ -36,7 +36,7 @@ module FactoryScenarios
       if persisted?
         user = find_user
       else
-        user = Factory.create(self.name)
+        user = FactoryGirl.create(self.name)
         self.user_id = user.id
       end
       

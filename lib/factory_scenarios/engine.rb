@@ -58,6 +58,11 @@ module FactoryScenarios
       config
     end
 
+    initializer "factory_scenarios.configure_asset_paths", :before => :load_config_initializers,  :group => :assets do |app|
+      gem_root = File.expand_path("../..", __FILE__)
+      Rails.application.config.assets.precompile += Dir["#{gem_root}/vendor/assets/**/*.*"]
+    end
+
     config.to_prepare do
       root = Rails.application.config.root
 

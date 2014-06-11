@@ -8,5 +8,5 @@ FactoryScenarios::Engine.routes.draw do
   end
 
   resources :mail_previews
-  match "/mail_previews/:mailer/:name" => "mail_previews#show", as: :show_mail_preview
+  get "/mail_previews/:mailer/:name" => "mail_previews#show", as: :show_mail_preview
 end

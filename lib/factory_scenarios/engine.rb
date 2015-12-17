@@ -32,7 +32,7 @@ module FactoryScenarios
 
   def self.config
     @config ||= AppConfiguration.new(
-      :user_class => 'User', 
+      :user_class => 'User',
       :iframe_width => '80%',
       :open_in_iframe => true,
       :factory_scenarios_moneta_backend => :YAML,
@@ -45,7 +45,7 @@ module FactoryScenarios
   class Engine < Rails::Engine
     isolate_namespace FactoryScenarios
     engine_name 'factory_scenarios'
-    
+
     initializer "paths" do
       paths['factories'] = "#{Rails.root.to_s}/spec/factories"
       paths['factories'] << "#{Rails.root.to_s}/factories"
@@ -59,17 +59,19 @@ module FactoryScenarios
     config.to_prepare do
       root = Rails.application.config.root
 
-      for factories_path in FactoryScenarios::Engine.paths['factories']
-        globstring = (factories_path + "/**/*.rb").to_s
+      if ActiveRecord::Base.connected?
+        for factories_path in FactoryScenarios::Engine.paths['factories']
+          globstring = (factories_path + "/**/*.rb").to_s
 
-        Dir[globstring].each do |factory|
-          load factory
+          Dir[globstring].each do |factory|
+            load factory
+          end
         end
-      end
-                    
-      preview_paths = FactoryScenarios::Engine.paths['mail_previews'].first
-      Dir[preview_paths].each do |previews|
-        load previews
+
+        preview_paths = FactoryScenarios::Engine.paths['mail_previews'].first
+        Dir[preview_paths].each do |previews|
+          load previews
+        end
       end
     end
   end

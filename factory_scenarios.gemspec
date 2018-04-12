@@ -58,7 +58,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rails>, [">= 3.1"])
-      s.add_runtime_dependency(%q<dkastner-moneta>)
+      s.add_runtime_dependency(%q<moneta>)
       s.add_runtime_dependency(%q<factory_girl>, ["~> 4.2.0"])
       s.add_runtime_dependency(%q<warden>, ["~> 1.0"])
       s.add_runtime_dependency(%q<haml>)
@@ -69,7 +69,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<test_engine>, [">= 0"])
     else
       s.add_dependency(%q<rails>, [">= 3.1"])
-      s.add_dependency(%q<dkastner-moneta>)
+      s.add_dependency(%q<moneta>)
       s.add_dependency(%q<factory_girl>, ["~> 4.2.0"])
       s.add_dependency(%q<warden>, ["~> 1.0"])
       s.add_dependency(%q<haml>)
@@ -81,7 +81,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<rails>, [">= 3.1"])
-    s.add_dependency(%q<dkastner-moneta>)
+    s.add_dependency(%q<moneta>)
     s.add_dependency(%q<factory_girl>, ["~> 4.2.0"])
     s.add_dependency(%q<warden>, ["~> 1.0"])
     s.add_dependency(%q<haml>)

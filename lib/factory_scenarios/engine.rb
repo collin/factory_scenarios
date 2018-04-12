@@ -37,7 +37,8 @@ module FactoryScenarios
       :open_in_iframe => true,
       :factory_scenarios_moneta_backend => :YAML,
       :factory_scenarios_moneta_config => {
-        :path => "#{Rails.root.to_s}/db/factory_scenarios.#{Rails.env}.yml"
+        :path => "#{Rails.root.to_s}/db/factory_scenarios.#{Rails.env}.yml",
+        :file => "#{Rails.root.to_s}/tmp/cache/moneta-cache"
       }
     )
   end

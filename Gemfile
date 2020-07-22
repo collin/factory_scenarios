@@ -1,11 +1,11 @@
 source "http://rubygems.org"
 
 gem "rails", ">= 3.1"
-gem "dkastner-moneta", "~> 0.7"
+gem "moneta", "~> 1.0"
 gem "factory_girl", "~> 4.2.0", :require => false
 gem "warden", "~> 1.0"
-gem "haml", "~> 3.0"
-gem "hashie", "~> 1.1"
+gem "haml"
+gem "hashie"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
